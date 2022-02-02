@@ -1,0 +1,28 @@
+﻿@model SaveCustomerViewModel
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SaveCustomer</title>
+</head>
+<h3 class="alert alert-success">Müşteri Ekle</h3>
+<body>
+
+    <form asp-controller="Customer" asp-action="SaveCustomer">
+        Id:<input asp-for="Customer.ID" /><br />
+        Adı:<input asp-for="Customer.FirstName" /><br />
+        Soyadı:<input asp-for="Customer.LastName" /><br />
+        Şehir:<select asp-for="Customer.City" asp-items="Model.Cities"> </select>
+        <button type="submit"></button>
+    </form>
+    @*Sayfaya özel scriptlerimiz var ise böyle tanımlıyoruz ve view dosyasında bunu kullandığımı belirtmemiz gerek*@
+    @section Scripts{
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    }
+</body>
+</html>
